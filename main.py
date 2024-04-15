@@ -1,12 +1,6 @@
 import pandas as pd
 import requests
 
-from sklearn.cluster import DBSCAN
-from sklearn.preprocessing import StandardScaler
-from sklearn.preprocessing import normalize
-from sklearn.decomposition import PCA
-
-
 
 def get_vacancies(keyword):
     url = "https://api.hh.ru/vacancies"
@@ -41,4 +35,11 @@ def get_vacancies(keyword):
 # Example usage
 get_vacancies("python developer junior")
 
+X = pd.read_csv('movie_example1.csv')
 
+result = X['id'].tolist()
+print(result)
+colums = X.columns.tolist()
+print(colums)
+resultat = X[['name', 'response_url', 'schedule', 'employment']]
+print(resultat)
