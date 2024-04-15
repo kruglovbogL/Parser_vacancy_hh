@@ -35,7 +35,7 @@ def get_vacancies(keyword):
             company_name = vacancy.get("employer", {}).get("name")
             print(f"ID: {vacancy_id}\nTitle: {vacancy_title}\nCompany: {company_name}\nURL: {vacancy_url}\nJob: {vacancy_job}\n")
             df = df._append(vacancy, ignore_index=True)
-            print(df.head(5))
+            df.to_csv('movie_example1.csv', index=False)
     else:
         print(f"Request failed with status code: {response.status_code}")
 # Example usage
