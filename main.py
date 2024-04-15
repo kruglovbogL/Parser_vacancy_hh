@@ -1,19 +1,12 @@
-from bs4 import BeautifulSoup
-import requests
 import pandas as pd
 import requests
-import json
-import time
-import os
-import pandas as pd
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
 
 from sklearn.cluster import DBSCAN
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import normalize
 from sklearn.decomposition import PCA
+
+
 
 def get_vacancies(keyword):
     url = "https://api.hh.ru/vacancies"
@@ -28,6 +21,8 @@ def get_vacancies(keyword):
 
     response = requests.get(url, params=params, headers=headers)
 
+    # Creating a DataFrame
+    df = pd.DataFrame()
     if response.status_code == 200:
         data = response.json()
         vacancies = data.get("items", [])
@@ -39,6 +34,8 @@ def get_vacancies(keyword):
             vacancy_url = vacancy.get("alternate_url")
             company_name = vacancy.get("employer", {}).get("name")
             print(f"ID: {vacancy_id}\nTitle: {vacancy_title}\nCompany: {company_name}\nURL: {vacancy_url}\nJob: {vacancy_job}\n")
+            df = df._append(vacancy, ignore_index=True)
+            df.to_csv('movie_example1.csv', index=False)
     else:
         print(f"Request failed with status code: {response.status_code}")
 # Example usage
