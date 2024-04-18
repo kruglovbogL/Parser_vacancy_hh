@@ -50,5 +50,6 @@ new_data = X.dropna()
 
 fig = plt.figure
 fig, ax = plt.subplots(figsize=(7, 7))
-sns.distplot(X.id, color='red', label='bmi', ax=ax)  # seaborn график по id вакансий, запихнуть любые ЧИСЛОВЫЕ данные DATAFRAME
+sns.distplot(X.id, color='red', label='bmi',
+             ax=ax)  # seaborn график по id вакансий, запихнуть любые ЧИСЛОВЫЕ данные DATAFRAME
 plt.show()
