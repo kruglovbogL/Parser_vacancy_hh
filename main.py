@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: UTF - 8
+# -*- coding: utf-8-bom
 import matplotlib.pyplot as plt
 import pandas as pd
 import requests
@@ -43,7 +43,7 @@ def get_vacancies(keyword):
 
 get_vacancies("python developer junior")  # запрос текста INPUT
 
-X = pd.read_csv('list_vacancies.csv')  # чтение csv файла
+X = pd.read_csv('list_vacancies.csv')  # чтение csv файла c таблицей данных!
 X.describe()
 print(X.columns)
 new_data = X.dropna()
