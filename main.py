@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: \xe7
+# -*- coding: UTF - 8
 import matplotlib.pyplot as plt
 import pandas as pd
 import requests
