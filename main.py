@@ -27,14 +27,14 @@ def get_vacancies(keyword):
         vacancies = data.get("items", [])  # получить items
         for vacancy in vacancies:
             # Информация о вакансиях id, job, title, url, name
-            vacancies_cash = vacancy.get("money")
+            vacancy_cash = vacancy.get("salary")
             vacancy_id = vacancy.get("id")
             vacancy_job = vacancy.get("schedule", {}).get("name")
             vacancy_title = vacancy.get("name")
             vacancy_url = vacancy.get("alternate_url")
             company_name = vacancy.get("employer", {}).get("name")
             print(
-                f"ID: {vacancy_id}\nTitle: {vacancy_title}\nCompany: {company_name}\nURL: {vacancy_url}\nJob: {vacancy_job}\n")
+                f"ID: {vacancy_id}\nTitle: {vacancy_title}\nCompany: {company_name}\nURL: {vacancy_url}\nJob: {vacancy_job}\nJob: {vacancy_cash}\n")
             data_frame = data_frame._append(vacancy, ignore_index=True)
             data_frame.to_csv('list_vacancies.csv', index=False)  # создание файла с данными
     else:
